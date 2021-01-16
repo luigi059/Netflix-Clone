@@ -10,7 +10,6 @@ export default function SignUp() {
 
   const handleSignup = (event) => {
     event.preventDefault();
-
     history.push(ROUTES.BROWSE);
   };
 
