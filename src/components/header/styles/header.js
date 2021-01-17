@@ -57,7 +57,7 @@ export const Group = styled.div`
   align-items: center;
 `;
 
-export const Link = styled.p`
+export const Link = styled(ReachRouterLink)`
   color: #fff;
   text-decoration: none;
   margin-right: 30px;

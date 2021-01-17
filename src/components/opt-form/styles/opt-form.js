@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import { Link as ReachRouterLink } from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
@@ -26,13 +27,14 @@ export const Break = styled.div`
   height: 0;
 `;
 
-export const Button = styled.button`
+export const Button = styled(ReachRouterLink)`
   display: flex;
   align-items: center;
   height: 70px;
   background: #e50914;
   color: white;
   text-transform: uppercase;
+  text-decoration: none;
   padding: 0 32px;
   font-size: 26px;
   border: 0;

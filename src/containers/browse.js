@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Header, Card } from '../components';
+import { Header, Card, Player } from '../components';
 import * as ROUTES from '../constants/routes';
 import logo from '../logo.svg';
 import FooterContainer from './footer';
 
 export default function BrowseContainer({ slides }) {
-  const [category, setCategory] = useState('series');
+  const [category, setCategory] = useState('films');
   const [searchTerm, setSearchTerm] = useState('');
   const [slideRows, setSlideRows] = useState([]);
 
@@ -19,11 +19,11 @@ export default function BrowseContainer({ slides }) {
         <Header.Frame>
           <Header.Group>
             <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
-            <Header.TextLink active={category === 'series' ? 'true' : 'false'} onClick={() => setCategory('series')}>
-              Series
-            </Header.TextLink>
             <Header.TextLink active={category === 'films' ? 'true' : 'false'} onClick={() => setCategory('films')}>
-              Films
+              Movies
+            </Header.TextLink>
+            <Header.TextLink active={category === 'series' ? 'true' : 'false'} onClick={() => setCategory('series')}>
+              TV Shows
             </Header.TextLink>
           </Header.Group>
           <Header.Group>
@@ -38,7 +38,10 @@ export default function BrowseContainer({ slides }) {
             City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
             futile attempt to feel like he's part of the world around him.
           </Header.Text>
-          <Header.PlayButton>Play</Header.PlayButton>
+          <Player>
+            <Player.Button />
+            <Player.Video src="/videos/bunny.mp4" />
+          </Player>
         </Header.Feature>
       </Header>
 
@@ -57,7 +60,12 @@ export default function BrowseContainer({ slides }) {
                 </Card.Item>
               ))}
             </Card.Entities>
-            <Card.Feature category={category} />
+            <Card.Feature category={category}>
+              <Player>
+                <Player.Button />
+                <Player.Video src="/videos/bunny.mp4" />
+              </Player>
+            </Card.Feature>
           </Card>
         ))}
       </Card.Group>
